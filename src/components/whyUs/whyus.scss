@@ -1,0 +1,27 @@
+.whyus__card {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  text-align: center;
+}
+
+.why__us {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  text-align: center;
+  margin: 100px 0px;
+}
+
+.whyUs__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+}
+
+@media (max-width:850px) {
+    .whyUs__cards{
+        grid-template-columns: 1fr;
+    }
+}
