@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState,memo } from "react";
 import "./header.scss";
 import logo from "../../../assets/icons/logo.svg";
 import search from "../../../assets/icons/search.svg";
@@ -6,6 +6,7 @@ import x from "../../../assets/icons/x.svg";
 import { FaBars } from "react-icons/fa";
 import NavSearchModule from "./navSearchModule";
 import mainUrl from "../../api/index";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   const [value, setValue] = useState("");
@@ -60,16 +61,16 @@ const Header = () => {
         ></div>
         <ul className={closeNavList ? "nav__list show__nav-list" : "nav__list"}>
           <li>
-            <a href="#">Home</a>
+            <NavLink to={"/"}>Home</NavLink>
           </li>
           <li>
-            <a href="#">Shop all</a>
+            <NavLink to={"/shopping"}>Shop all</NavLink>
           </li>
           <li>
-            <a href="#">Blog</a>
+            <NavLink to={"/blog"}>Blog</NavLink>
           </li>
           <li>
-            <a href="#">About US</a>
+            <NavLink to={"/about"}>About Us</NavLink>
           </li>
           <img
             className="nav__list-closer"
@@ -80,7 +81,9 @@ const Header = () => {
           />
         </ul>
         <div className="nav__logo">
-          <img src={logo} alt="" />
+          <NavLink to={"/"}>
+            <img src={logo} alt="" />
+          </NavLink>
         </div>
         <div className="nav__btns">
           <form className="nav__form" action="">
@@ -101,4 +104,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default memo(Header);

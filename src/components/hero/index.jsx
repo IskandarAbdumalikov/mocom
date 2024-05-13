@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import "./hero.scss";
 import heroImg from "../../assets/images/hero.svg";
 
@@ -19,4 +19,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default memo(Hero);

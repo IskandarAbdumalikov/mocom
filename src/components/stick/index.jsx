@@ -1,10 +1,8 @@
-import React from 'react'
-import "./stick.scss"
+import React, { memo } from "react";
+import "./stick.scss";
 
 const Stick = () => {
-  return (
-    <div className='stick'></div>
-  )
-}
+  return <div className="stick"></div>;
+};
 
-export default Stick
+export default memo(Stick);

@@ -1,13 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 import "./footer.scss";
 import footerLogo from "../../../assets/icons/footerLogo.svg";
 import whatsup from "../../../assets/icons/whatsup.svg";
 import facebook from "../../../assets/icons/facebook.svg";
 import instagram from "../../../assets/icons/instagram.svg";
 import tiktok from "../../../assets/icons/tiktok.svg";
-
-
-
 
 const Footer = () => {
   return (
@@ -76,4 +73,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default memo(Footer);

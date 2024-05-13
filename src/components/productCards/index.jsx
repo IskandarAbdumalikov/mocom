@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, memo } from "react";
 import "./products.scss";
 import mainUrl from "../api/index";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   const [products, setProducts] = useState(null);
@@ -23,11 +24,13 @@ const Products = () => {
   let productItem = products?.map((el) => (
     <div key={el.id} className="product__card">
       <div className="product__card__image">
-        <img
-          className="product__card__img"
-          src={el.images[0]}
-          alt={el.title}
-        />
+        <Link to={`product/${el.id}`}>
+          <img
+            className="product__card__img"
+            src={el.images[0]}
+            alt={el.title}
+          />
+        </Link>
       </div>
       <div className="product__card__info">
         <h3>{el.title}</h3>
@@ -48,12 +51,16 @@ const Products = () => {
   );
   return (
     <div className="container wrapper">
-      <div className="loading">
-        {loader ? loadingItem : <></>}
-        {loader ? loadingItem : <></>}
-        {loader ? loadingItem : <></>}
-        {loader ? loadingItem : <></>}
-      </div>
+      {loader ? (
+        <div className="loading">
+          {loader ? loadingItem : <></>}
+          {loader ? loadingItem : <></>}
+          {loader ? loadingItem : <></>}
+          {loader ? loadingItem : <></>}
+        </div>
+      ) : (
+        <></>
+      )}
       <div className="wrapper__cards">{productItem}</div>
 
       <button className="see__more-btn" onClick={() => setOffset((p) => p + 1)}>
@@ -63,4 +70,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default memo(Products);

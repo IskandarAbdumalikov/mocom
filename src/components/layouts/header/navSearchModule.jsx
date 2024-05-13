@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 const NavSearchModule = ({ data }) => {
   // console.log(data.length);
@@ -22,4 +22,4 @@ const NavSearchModule = ({ data }) => {
   );
 };
 
-export default NavSearchModule;
+export default memo(NavSearchModule);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import "./whyus.scss";
 import { DATA } from "../../static/productData";
 
@@ -18,4 +18,4 @@ const WhyUs = () => {
   );
 };
 
-export default WhyUs;
+export default memo(WhyUs);
