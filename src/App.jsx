@@ -18,7 +18,8 @@ function App() {
         <Route path="shopping" element={<Shopping />} />
         <Route path="blog" element={<Blog />} />
         <Route path="about" element={<AboutPage />} />
-        <Route path="product/:id" element={<SingleItem />} />
+        <Route path={"product/:id"} element={<SingleItem />} />
+        <Route path={"shopping/product/:id"} element={<SingleItem />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

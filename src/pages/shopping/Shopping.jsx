@@ -1,6 +1,6 @@
 import React, { useEffect, useState, memo } from "react";
 import "./shopping.scss";
-import mainUrl from "../../components/api/index";
+import mainUrl from "../../components/api";
 import { Link } from "react-router-dom";
 
 const Shopping = () => {
@@ -15,7 +15,13 @@ const Shopping = () => {
   let productItem = products?.map((el) => (
     <div key={el.id} className="product__card">
       <div className="product__card__image">
-        <img className="product__card__img" src={el.images[0]} alt={el.title} />
+        <Link to={`product/${el.id}`}>
+          <img
+            className="product__card__img"
+            src={el.images[0]}
+            alt={el.title}
+          />
+        </Link>
       </div>
       <div className="product__card__info">
         <h3>{el.title}</h3>

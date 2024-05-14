@@ -9,7 +9,7 @@ const SingleItem = () => {
   let [loading, setLoading] = useState(true);
   useEffect(() => {
     axios
-      .get(`/products/${id}`)
+      .get(`/products/${id}` || `/shopping/products/${id}`)
       .then((res) => setData(res.data))
       .catch((err) => console.log(err))
       .finally(setLoading(false));
