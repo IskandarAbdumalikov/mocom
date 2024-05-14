@@ -8,11 +8,12 @@ const SingleItem = () => {
   let [data, setData] = useState([]);
   let [loading, setLoading] = useState(true);
   useEffect(() => {
+    setLoading(true)
     axios
       .get(`/products/${id}` || `/shopping/products/${id}`)
       .then((res) => setData(res.data))
       .catch((err) => console.log(err))
-      .finally(setLoading(false));
+      .finally(()=>setLoading(false));
   }, []);
 
   let singleItem = (
